@@ -6,6 +6,7 @@ import com.djdp.dto.Result;
 import com.djdp.entity.UserInfo;
 import com.djdp.service.IUserInfoService;
 import com.djdp.service.IUserService;
+import com.djdp.utils.UserHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,10 +59,11 @@ public class UserController {
         return Result.fail("功能未完成");
     }
 
+
     @GetMapping("/me")
     public Result me(){
-        // TODO 获取当前登录的用户并返回
-        return Result.fail("功能未完成");
+        //获取当前登录的用户并返回
+        return Result.ok(UserHolder.getUser());
     }
 
     @GetMapping("/info/{id}")
