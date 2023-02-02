@@ -1,7 +1,10 @@
 package com.djdp.service;
 
+import com.djdp.dto.Result;
 import com.djdp.entity.ShopType;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IShopTypeService extends IService<ShopType> {
 
+    Result getList();
 }
