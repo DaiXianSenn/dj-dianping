@@ -1,7 +1,10 @@
 package com.djdp.service;
 
+import com.djdp.dto.Result;
 import com.djdp.entity.Follow;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+
 
 /**
  * <p>
@@ -13,4 +16,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IFollowService extends IService<Follow> {
 
+    Result isFollow(Long followUserId);
+
+    Result follow(Long followUserId, Boolean isFollow);
+
+    Result followCommons(Long id);
 }

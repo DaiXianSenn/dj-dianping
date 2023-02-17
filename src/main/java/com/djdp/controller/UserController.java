@@ -1,8 +1,11 @@
 package com.djdp.controller;
 
 
+import cn.hutool.core.bean.BeanUtil;
 import com.djdp.dto.LoginFormDTO;
 import com.djdp.dto.Result;
+import com.djdp.dto.UserDTO;
+import com.djdp.entity.User;
 import com.djdp.entity.UserInfo;
 import com.djdp.service.IUserInfoService;
 import com.djdp.service.IUserService;
@@ -60,6 +63,17 @@ public class UserController {
     }
 
 
+    @GetMapping("/{id}")
+    public Result queryUserById(@PathVariable("id") Long userId){
+        // 查询详情
+        User user = userService.getById(userId);
+        if (user == null) {
+            return Result.ok();
+        }
+        UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
+        // 返回
+        return Result.ok(userDTO);
+    }
     @GetMapping("/me")
     public Result me(){
         //获取当前登录的用户并返回
